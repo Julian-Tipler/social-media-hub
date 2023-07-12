@@ -26,4 +26,5 @@ module.exports = {
     "@typescript-eslint/no-unsafe-assignment": "off",
   },
   ignorePatterns: ["functions/"],
+  
 };
