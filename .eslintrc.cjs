@@ -23,6 +23,8 @@ module.exports = {
       { allowConstantExport: true },
     ],
     "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
   },
   ignorePatterns: ["functions/"],
+  
 };
