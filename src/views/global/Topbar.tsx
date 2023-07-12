@@ -1,9 +1,14 @@
-import { Box, Button } from "@chakra-ui/react";
+import { Box, Button, useColorModeValue } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 
 export const Topbar = () => {
   return (
-    <Box display={"flex"} justifyContent={"space-between"} p={2}>
+    <Box
+      display={{ base: "none", md: "flex" }}
+      justifyContent={"space-between"}
+      p={2}
+      bg={useColorModeValue("white", "gray.900")}
+    >
       <Button>
         <NavLink to="/">Home</NavLink>
       </Button>

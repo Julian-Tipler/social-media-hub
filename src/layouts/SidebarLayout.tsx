@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import {
   IconButton,
   Box,
@@ -24,6 +24,8 @@ import {
 } from "react-icons/fi";
 import { IconType } from "react-icons";
 import { ReactText } from "react";
+import { Outlet } from "react-router-dom";
+import Topbar from "../views/global/Topbar";
 
 interface LinkItemProps {
   name: string;
@@ -37,7 +39,7 @@ const LinkItems: Array<LinkItemProps> = [
   { name: "Settings", icon: FiSettings },
 ];
 
-export const Sidebar = ({ children }: { children?: ReactNode }) => {
+export const SidebarLayout = ({ children }: { children?: ReactNode }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
@@ -60,8 +62,11 @@ export const Sidebar = ({ children }: { children?: ReactNode }) => {
       </Drawer>
       {/* mobilenav */}
       <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
-      <Box ml={{ base: 0, md: 60 }} p="4">
-        {children}
+      <Box ml={{ base: 0, md: 60 }} className={"main"}>
+        <Topbar />
+        <Box p="4">
+          <Outlet />
+        </Box>
       </Box>
     </Box>
   );
@@ -104,7 +109,8 @@ interface NavItemProps extends FlexProps {
 const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
   return (
     <Link
-      href="#"
+      href="
+      "
       style={{ textDecoration: "none" }}
       _focus={{ boxShadow: "none" }}
     >
