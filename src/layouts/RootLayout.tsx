@@ -1,5 +1,6 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Topbar from "../views/global/Topbar";
+import { Sidebar } from "../views/global/Sidebar";
 
 function RootLayout() {
   return (
@@ -7,6 +8,7 @@ function RootLayout() {
       <header>
         <Topbar />
       </header>
+      <Sidebar />
       <main>
         <Outlet />
       </main>
