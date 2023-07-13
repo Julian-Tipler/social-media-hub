@@ -4,6 +4,7 @@ export const styles = {
     // styles for the `body`
     body: {
       bg: "gray.400",
+      color: "#fff"
     },
     // styles for the `a`
     a: {

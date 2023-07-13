@@ -7,7 +7,9 @@ export const Topbar = () => {
       display={{ base: "none", md: "flex" }}
       justifyContent={"space-between"}
       p={2}
-      bg={useColorModeValue("white", "gray.900")}
+      bg={"brand.background"}
+      borderBottomWidth={1}
+      borderBottomColor={"brand.border"}
     >
       <Button bg={"brand.primary"}>
         <NavLink to="/">Home</NavLink>

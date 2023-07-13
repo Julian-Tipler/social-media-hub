@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import { Home } from "./views/Home/Home";
 import { SidebarLayout } from "./layouts/SidebarLayout";
+import { Card } from "@chakra-ui/react";
 
 const App = () => {
   const router = createBrowserRouter(

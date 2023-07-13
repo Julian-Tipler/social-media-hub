@@ -2,7 +2,6 @@ import { Grid, GridItem } from "@chakra-ui/react";
 import Welcome from "./Welcome";
 
 export const Home = () => {
-  console.log("Home");
   return (
     <Grid
       h="800px"

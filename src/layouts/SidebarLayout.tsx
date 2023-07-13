@@ -84,9 +84,9 @@ interface SidebarProps extends BoxProps {
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
   return (
     <Box
-      bg={useColorModeValue("white", "gray.900")}
-      borderRight="1px"
-      borderRightColor={useColorModeValue("gray.200", "gray.700")}
+      bg={useColorModeValue("brand.background", "gray.900")}
+      borderRightWidth={1}
+      borderRightColor={"brand.border"}
       w={{ base: "full", md: 60 }}
       pos="fixed"
       h="full"
@@ -128,7 +128,7 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
         cursor="pointer"
         _hover={{
           bg: "brand.primary",
-          color: "white",
+          color: "text.primary",
         }}
         {...rest}
       >
@@ -137,7 +137,7 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
             mr="4"
             fontSize="16"
             _groupHover={{
-              color: "white",
+              color: "text.primary",
             }}
             as={icon}
           />
@@ -158,9 +158,9 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       px={{ base: 4, md: 24 }}
       height="20"
       alignItems="center"
-      bg={useColorModeValue("white", "gray.900")}
-      borderBottomWidth="1px"
-      borderBottomColor={useColorModeValue("gray.200", "gray.700")}
+      bg={"brand.background"}
+      borderBottomWidth={1}
+      borderBottomColor={"brand.border"}
       justifyContent="flex-start"
       {...rest}
     >
@@ -169,6 +169,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
         onClick={onOpen}
         aria-label="open menu"
         icon={<FiMenu />}
+        color={"white"}
       />
 
       <Text fontSize="2xl" ml="8" fontFamily="monospace" fontWeight="bold">

@@ -4,10 +4,11 @@ export const colors = {
     secondary: "#C7F9CC",
     tertiary: "#38A3A5",
     background: "#0F2B3D",
+    border: "#2d3748",
   },
   text: {
-    primary: "#333333",
-    secondary: "#666666",
+    primary: "#ffffff", // Change to a suitable color for primary text in dark mode
+    secondary: "#cccccc", // Change to a suitable color for secondary text in dark mode
     tertiary: "#999999",
   },
   transparent: "transparent",
