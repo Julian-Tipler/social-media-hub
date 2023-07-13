@@ -84,7 +84,7 @@ interface SidebarProps extends BoxProps {
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
   return (
     <Box
-      bg={useColorModeValue("brand.background", "gray.900")}
+      bg={useColorModeValue("brand.cardBackground", "gray.900")}
       borderRightWidth={1}
       borderRightColor={"brand.border"}
       w={{ base: "full", md: 60 }}
@@ -158,7 +158,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       px={{ base: 4, md: 24 }}
       height="20"
       alignItems="center"
-      bg={"brand.background"}
+      bg={"brand.cardBackground"}
       borderBottomWidth={1}
       borderBottomColor={"brand.border"}
       justifyContent="flex-start"

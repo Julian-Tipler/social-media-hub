@@ -7,7 +7,7 @@ export const Topbar = () => {
       display={{ base: "none", md: "flex" }}
       justifyContent={"space-between"}
       p={2}
-      bg={"brand.background"}
+      bg={"brand.cardBackground"}
       borderBottomWidth={1}
       borderBottomColor={"brand.border"}
     >

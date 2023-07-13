@@ -1,9 +1,11 @@
 
+import {colors} from "./colors"
+
 export const styles = {
   global: {
     // styles for the `body`
     body: {
-      bg: "gray.400",
+      bg: colors.brand.background,
       color: "#fff"
     },
     // styles for the `a`
