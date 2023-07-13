@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import {
   IconButton,
   Box,
@@ -24,6 +24,8 @@ import {
 } from "react-icons/fi";
 import { IconType } from "react-icons";
 import { ReactText } from "react";
+import { Outlet } from "react-router-dom";
+import Topbar from "../views/global/Topbar";
 
 interface LinkItemProps {
   name: string;
@@ -37,7 +39,7 @@ const LinkItems: Array<LinkItemProps> = [
   { name: "Settings", icon: FiSettings },
 ];
 
-export const Sidebar = ({ children }: { children?: ReactNode }) => {
+export const SidebarLayout = ({ children }: { children?: ReactNode }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
@@ -60,8 +62,16 @@ export const Sidebar = ({ children }: { children?: ReactNode }) => {
       </Drawer>
       {/* mobilenav */}
       <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
-      <Box ml={{ base: 0, md: 60 }} p="4">
-        {children}
+      <Box ml={{ base: 0, md: 60 }} className={"main"}>
+        <Topbar />
+        <Box
+          p="4"
+          className="body"
+          backgroundColor={"brand.background"}
+          h={"100vh"}
+        >
+          <Outlet />
+        </Box>
       </Box>
     </Box>
   );
@@ -74,16 +84,16 @@ interface SidebarProps extends BoxProps {
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
   return (
     <Box
-      bg={useColorModeValue("white", "gray.900")}
-      borderRight="1px"
-      borderRightColor={useColorModeValue("gray.200", "gray.700")}
+      bg={useColorModeValue("brand.cardBackground", "gray.900")}
+      borderRightWidth={1}
+      borderRightColor={"brand.border"}
       w={{ base: "full", md: 60 }}
       pos="fixed"
       h="full"
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Text fontSize="2xl" fontWeight="bold">
+        <Text fontSize="2xl" fontWeight="bold" color={"brand.primary"}>
           Logo
         </Text>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
@@ -104,7 +114,8 @@ interface NavItemProps extends FlexProps {
 const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
   return (
     <Link
-      href="#"
+      href="
+      "
       style={{ textDecoration: "none" }}
       _focus={{ boxShadow: "none" }}
     >
@@ -116,8 +127,8 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
         role="group"
         cursor="pointer"
         _hover={{
-          bg: "cyan.400",
-          color: "white",
+          bg: "brand.primary",
+          color: "text.primary",
         }}
         {...rest}
       >
@@ -126,7 +137,7 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
             mr="4"
             fontSize="16"
             _groupHover={{
-              color: "white",
+              color: "text.primary",
             }}
             as={icon}
           />
@@ -147,9 +158,9 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       px={{ base: 4, md: 24 }}
       height="20"
       alignItems="center"
-      bg={useColorModeValue("white", "gray.900")}
-      borderBottomWidth="1px"
-      borderBottomColor={useColorModeValue("gray.200", "gray.700")}
+      bg={"brand.cardBackground"}
+      borderBottomWidth={1}
+      borderBottomColor={"brand.border"}
       justifyContent="flex-start"
       {...rest}
     >
@@ -158,6 +169,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
         onClick={onOpen}
         aria-label="open menu"
         icon={<FiMenu />}
+        color={"white"}
       />
 
       <Text fontSize="2xl" ml="8" fontFamily="monospace" fontWeight="bold">
