@@ -6,11 +6,11 @@ export function Card({ children }: { children: React.ReactNode }) {
     <ChakraCard
       h="100%"
       p="20px"
-      border="1px solid #2d3748"
-      backgroundColor="#21262d"
+      border="1px solid"
+      borderColor={"brand.border"}
+      backgroundColor={"brand.cardBackground"}
     >
       {children}
     </ChakraCard>
   );
 }
-

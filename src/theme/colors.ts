@@ -3,8 +3,9 @@ export const colors = {
     primary: "#57CC99",
     secondary: "#C7F9CC",
     tertiary: "#38A3A5",
-    background: "#0F2B3D",
-    border: "#2d3748",
+    background: "#0C2331",
+    cardBackground: "#172D3A",
+    border: "#2C414E",
   },
   text: {
     primary: "#ffffff", // Change to a suitable color for primary text in dark mode
