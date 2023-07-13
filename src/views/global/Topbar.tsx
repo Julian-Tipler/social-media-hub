@@ -9,10 +9,10 @@ export const Topbar = () => {
       p={2}
       bg={useColorModeValue("white", "gray.900")}
     >
-      <Button>
+      <Button bg={"brand.primary"}>
         <NavLink to="/">Home</NavLink>
       </Button>
-      <Button>
+      <Button bg={"brand.secondary"}>
         <NavLink to="/about">About</NavLink>
       </Button>
     </Box>

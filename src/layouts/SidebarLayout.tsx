@@ -64,7 +64,12 @@ export const SidebarLayout = ({ children }: { children?: ReactNode }) => {
       <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} className={"main"}>
         <Topbar />
-        <Box p="4">
+        <Box
+          p="4"
+          className="body"
+          backgroundColor={"brand.background"}
+          h={"100vh"}
+        >
           <Outlet />
         </Box>
       </Box>
@@ -88,7 +93,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Text fontSize="2xl" fontWeight="bold">
+        <Text fontSize="2xl" fontWeight="bold" color={"brand.primary"}>
           Logo
         </Text>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
@@ -122,7 +127,7 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
         role="group"
         cursor="pointer"
         _hover={{
-          bg: "cyan.400",
+          bg: "brand.primary",
           color: "white",
         }}
         {...rest}
