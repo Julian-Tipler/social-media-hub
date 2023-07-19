@@ -24,7 +24,7 @@ module.exports = {
     ],
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-explicit-any": 0,
   },
   ignorePatterns: ["functions/"],
-  
 };
