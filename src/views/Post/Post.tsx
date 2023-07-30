@@ -1,16 +1,24 @@
-import { Flex, Grid, Box } from "@chakra-ui/react";
+import { Flex, Grid, Box, Spacer, Divider, Center } from "@chakra-ui/react";
 import { CreateNewPost } from "./CreateNewPost";
 import { DalleWidget } from "./DalleWidget";
 import { Card } from "../../components/Card";
 
 export const Post = () => {
   return (
-    <Flex>
-      <Box flex={1}></Box>
+    <Flex height="80vh">
+      <Box flex={1}>
+        <CreateNewPost />
+      </Box>
+      <Divider
+        orientation="vertical"
+        padding={0}
+        height={"100%"}
+        marginLeft={4}
+        marginRight={4}
+      />
       <Grid
         flex={1}
         templateRows={"repeat(4, 400px)"}
-        height="80vh"
         overflowY="scroll"
         gap={4}
       >
