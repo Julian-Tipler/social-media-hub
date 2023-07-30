@@ -7,7 +7,7 @@ export const UserIcon = ({ name }: { name: string }) => {
       <Image
         src="https://avatars.githubusercontent.com/u/1024025?v=4"
         alt="user icon"
-        height={10}
+        height={8}
         marginRight={5}
       />
       <Text>{name}</Text>

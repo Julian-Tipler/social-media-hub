@@ -20,7 +20,7 @@ export const CreateNewPost = () => {
       <CardHeader>
         <Heading size="sm">Create new post</Heading>
       </CardHeader>
-      <CardBody>
+      <CardBody paddingTop={0}>
         {/* Desktop */}
         <Flex flexDir={"column"} height={"100%"}>
           <Image flex={5} border={"2px solid red"} />
