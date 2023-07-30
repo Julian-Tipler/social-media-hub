@@ -16,11 +16,11 @@ import {
 } from "@chakra-ui/react";
 import {
   FiHome,
-  FiTrendingUp,
   FiCompass,
   FiStar,
   FiSettings,
   FiMenu,
+  FiSmartphone,
 } from "react-icons/fi";
 import { IconType } from "react-icons";
 import { ReactText } from "react";
@@ -30,13 +30,14 @@ import Topbar from "../views/global/Topbar";
 interface LinkItemProps {
   name: string;
   icon: IconType;
+  href: string;
 }
 const LinkItems: Array<LinkItemProps> = [
-  { name: "Home", icon: FiHome },
-  { name: "Trending", icon: FiTrendingUp },
-  { name: "Explore", icon: FiCompass },
-  { name: "Favourites", icon: FiStar },
-  { name: "Settings", icon: FiSettings },
+  { name: "Home", icon: FiHome, href: "/" },
+  { name: "Post", icon: FiSmartphone, href: "/post" },
+  { name: "Explore", icon: FiCompass, href: "/" },
+  { name: "Favourites", icon: FiStar, href: "/" },
+  { name: "Settings", icon: FiSettings, href: "/" },
 ];
 
 export const SidebarLayout = ({ children }: { children?: ReactNode }) => {
@@ -81,7 +82,9 @@ interface SidebarProps extends BoxProps {
   onClose: () => void;
 }
 
+//Nav items for mobile and desktop view
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+  console.log("SidebarContent");
   return (
     <Box
       bg={useColorModeValue("brand.cardBackground", "gray.900")}
@@ -99,7 +102,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
+        <NavItem key={link.name} icon={link.icon} href={link.href}>
           {link.name}
         </NavItem>
       ))}
@@ -109,13 +112,14 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 
 interface NavItemProps extends FlexProps {
   icon: IconType;
+  href: string;
   children: ReactText;
 }
-const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
+const NavItem = ({ icon, children, href, ...rest }: NavItemProps) => {
+  console.log();
   return (
     <Link
-      href="
-      "
+      href={href}
       style={{ textDecoration: "none" }}
       _focus={{ boxShadow: "none" }}
     >
