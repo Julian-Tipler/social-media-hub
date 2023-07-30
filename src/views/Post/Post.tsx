@@ -5,7 +5,8 @@ import { Card } from "../../components/Card";
 
 export const Post = () => {
   return (
-    <Flex overflow={"scroll"} height={"100%"}>
+    // this one might not be:
+    <Flex overflow={"auto"} height={"100%"}>
       <Box flex={1}>
         <CreateNewPost />
       </Box>
@@ -16,9 +17,9 @@ export const Post = () => {
         marginLeft={4}
         marginRight={4}
       />
+      {/* This overflow def important: */}
       <Grid flex={1} templateRows={"repeat(4, 400px)"} overflowY="auto" gap={4}>
         {/* First two "widget" cards */}
-        <DalleWidget />
         <DalleWidget />
         <DalleWidget />
         <DalleWidget />
