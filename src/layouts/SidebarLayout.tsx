@@ -75,6 +75,7 @@ export const SidebarLayout = ({ children }: { children?: ReactNode }) => {
           className="page"
           flex={1}
           overflow={"auto"}
+          backgroundColor={"brand.background"}
         >
           <Outlet />
         </Box>
