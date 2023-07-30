@@ -1,4 +1,8 @@
-import { Flex, Textarea, TextareaProps } from "@chakra-ui/react";
+import {
+  Flex,
+  Textarea as ChakraTextarea,
+  TextareaProps,
+} from "@chakra-ui/react";
 import { UserIcon } from "./UserIcon";
 
 interface TextInputBoxProps extends TextareaProps {
@@ -15,11 +19,11 @@ const minimalStyling = {
   padding: 0,
 };
 
-export const TextInputBox = ({ userIcon, ...props }: TextInputBoxProps) => {
+export const Textarea = ({ userIcon, ...props }: TextInputBoxProps) => {
   return (
-    <Flex flexDir={"column"} padding={5}>
+    <Flex flexDir={"column"} justifyContent={"center"}>
       {userIcon && <UserIcon name={userIcon} />}
-      <Textarea {...minimalStyling} {...props} resize={"none"} />
+      <ChakraTextarea {...minimalStyling} {...props} resize={"none"} />
     </Flex>
   );
 };
