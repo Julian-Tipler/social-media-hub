@@ -11,7 +11,7 @@ export const Topbar = () => {
       bg={"brand.cardBackground"}
       borderBottomWidth={1}
       borderBottomColor={"brand.border"}
-      height={"60px"}
+      minHeight={"60px"}
     >
       <Button bg={"brand.primary"}>
         <NavLink to="/">Home</NavLink>

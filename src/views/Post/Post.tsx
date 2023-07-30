@@ -5,7 +5,7 @@ import { Card } from "../../components/Card";
 
 export const Post = () => {
   return (
-    <Flex height="80vh">
+    <Flex overflow={"scroll"} height={"100%"}>
       <Box flex={1}>
         <CreateNewPost />
       </Box>
@@ -16,12 +16,7 @@ export const Post = () => {
         marginLeft={4}
         marginRight={4}
       />
-      <Grid
-        flex={1}
-        templateRows={"repeat(4, 400px)"}
-        overflowY="scroll"
-        gap={4}
-      >
+      <Grid flex={1} templateRows={"repeat(4, 400px)"} overflowY="auto" gap={4}>
         {/* First two "widget" cards */}
         <Box h="400px" w="100%" bg="green.100" flex="0 0 auto">
           {/* Your widget 1 content here */}

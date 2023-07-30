@@ -72,9 +72,9 @@ export const SidebarLayout = ({ children }: { children?: ReactNode }) => {
         <Topbar />
         <Box
           p="4"
-          className="body"
-          backgroundColor={"brand.background"}
+          className="page"
           flex={1}
+          overflow={"auto"}
         >
           <Outlet />
         </Box>
