@@ -4,7 +4,9 @@ import { Card } from "../../components/Card";
 function Welcome() {
   return (
     <Card>
-      <Heading size="sm"> Welcome to My Page</Heading>
+      <CardHeader>
+        <Heading size="sm"> Welcome to My Page</Heading>
+      </CardHeader>
       <CardBody>
         <Text mb={4}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempus

@@ -10,7 +10,6 @@ export function Card({ children, ...props }: CardProps) {
     <ChakraCard
       h="100%"
       w="100%"
-      p="20px"
       border="1px solid"
       borderColor={"brand.border"}
       backgroundColor={"brand.cardBackground"}

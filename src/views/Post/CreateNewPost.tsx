@@ -14,21 +14,27 @@ import { useState } from "react";
 
 export const CreateNewPost = () => {
   const [caption, setCaption] = useState<string>("");
-  console.log(caption)
+  console.log(caption);
   return (
     <Card>
-      <Flex alignItems={"center"} justifyContent={"center"}>
+      <CardHeader>
         <Heading size="sm">Create new post</Heading>
-      </Flex>
+      </CardHeader>
       <CardBody>
         {/* Desktop */}
         <Flex flexDir={"column"} height={"100%"}>
           <Image flex={5} border={"2px solid red"} />
-          <Flex backgroundColor={"white"} flex={4} flexDir={"column"}>
+          <Flex backgroundColor={"gray.400"} flex={4} flexDir={"column"}>
             <TextInputBox
+              flex={3}
+              userIcon="julian"
               value={caption}
               onChange={(e) => setCaption(e.target.value)}
+              placeholder="Write a caption..."
             />
+            <Input flex={1} />
+            <Input flex={1} />
+            <Input flex={1} />
           </Flex>
           {/* Mobile
           <Flex>

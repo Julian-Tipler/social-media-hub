@@ -1,20 +1,25 @@
-import { Flex, Input, InputProps } from "@chakra-ui/react";
+import { Flex, Textarea, TextareaProps } from "@chakra-ui/react";
 import { UserIcon } from "./UserIcon";
 
-interface TextInputBoxProps extends InputProps {
+interface TextInputBoxProps extends TextareaProps {
   userIcon?: string;
 }
 
-export const TextInputBox = ({
-  value,
-  onChange,
-  userIcon,
-  ...props
-}: TextInputBoxProps) => {
+const minimalStyling = {
+  border: "none",
+  onFocus: (e: React.FocusEvent<HTMLTextAreaElement>) => {
+    e.target.style.outline = "none";
+    e.target.style.border = "none";
+    e.target.style.boxShadow = "none";
+  },
+  padding: 0,
+};
+
+export const TextInputBox = ({ userIcon, ...props }: TextInputBoxProps) => {
   return (
-    <Flex>
+    <Flex flexDir={"column"} padding={5}>
       {userIcon && <UserIcon name={userIcon} />}
-      <Input {...props} value={value} onChange={onChange} />;
+      <Textarea {...minimalStyling} {...props} resize={"none"} />
     </Flex>
   );
 };
