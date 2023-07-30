@@ -63,17 +63,22 @@ export const SidebarLayout = ({ children }: { children?: ReactNode }) => {
       </Drawer>
       {/* mobilenav */}
       <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
-      <Box ml={{ base: 0, md: 60 }} className={"main"}>
+      <Flex
+        ml={{ base: 0, md: 60 }}
+        className={"main"}
+        flexDir={"column"}
+        height={"100vh"}
+      >
         <Topbar />
         <Box
           p="4"
           className="body"
           backgroundColor={"brand.background"}
-          h={"100vh"}
+          flex={1}
         >
           <Outlet />
         </Box>
-      </Box>
+      </Flex>
     </Box>
   );
 };
