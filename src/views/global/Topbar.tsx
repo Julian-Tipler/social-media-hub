@@ -7,11 +7,10 @@ export const Topbar = () => {
       display={{ base: "none", md: "flex" }}
       justifyContent={"space-between"}
       alignItems={"center"}
-      p={2}
       bg={"brand.cardBackground"}
       borderBottomWidth={1}
       borderBottomColor={"brand.border"}
-      minHeight={"60px"}
+      height={"100%"}
     >
       <Button bg={"brand.primary"}>
         <NavLink to="/">Home</NavLink>

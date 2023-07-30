@@ -69,7 +69,9 @@ export const SidebarLayout = ({ children }: { children?: ReactNode }) => {
         flexDir={"column"}
         height={"100vh"}
       >
-        <Topbar />
+        <Box minHeight={"60px"} p="0" m="0">
+          <Topbar />
+        </Box>
         <Box
           p="4"
           className="page"

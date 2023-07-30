@@ -18,18 +18,10 @@ export const Post = () => {
       />
       <Grid flex={1} templateRows={"repeat(4, 400px)"} overflowY="auto" gap={4}>
         {/* First two "widget" cards */}
-        <Box h="400px" w="100%" bg="green.100" flex="0 0 auto">
-          {/* Your widget 1 content here */}
-        </Box>
-        <Box h="400px" w="100%" bg="green.200" flex="0 0 auto">
-          {/* Your widget 1 content here */}
-        </Box>
-        <Box h="400px" w="100%" bg="green.300" flex="0 0 auto">
-          {/* Your widget 1 content here */}
-        </Box>
-        <Box h="400px" w="100%" bg="green.400" flex="0 0 auto">
-          {/* Your widget 1 content here */}
-        </Box>
+        <DalleWidget />
+        <DalleWidget />
+        <DalleWidget />
+        <DalleWidget />
       </Grid>
     </Flex>
   );
