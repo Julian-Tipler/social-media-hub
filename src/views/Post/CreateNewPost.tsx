@@ -18,7 +18,6 @@ export const CreateNewPost = () => {
   const [location, setLocation] = useState<string>("");
   const [accessibility, setAccessibility] = useState<string>("");
   const [advancedSettings, setAdvancedSettings] = useState<string>("");
-
   console.log(caption);
   return (
     <Card>
@@ -35,15 +34,15 @@ export const CreateNewPost = () => {
             flexDir={"column"}
             padding={5}
           >
-            <Box flex={3}>
+            <Flex flex={3}>
               <Textarea
-                flex={3}
                 userIcon="julian"
                 value={caption}
+                maxLength={20}
                 onChange={(e) => setCaption(e.target.value)}
                 placeholder="Write a caption..."
               />
-            </Box>
+            </Flex>
             <Divider />
             <Input
               flex={1}
