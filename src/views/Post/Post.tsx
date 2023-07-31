@@ -2,6 +2,7 @@ import { Flex, Grid, Box, Spacer, Divider, Center } from "@chakra-ui/react";
 import { CreateNewPost } from "./CreateNewPost";
 import { DalleWidget } from "./DalleWidget";
 import { Card } from "../../components/Card";
+import { MusicWidget } from "./MusicWidget";
 
 export const Post = () => {
   return (
@@ -18,11 +19,11 @@ export const Post = () => {
         marginRight={4}
       />
       {/* This overflow def important: */}
-      <Grid flex={1} templateRows={"repeat(4, 400px)"} overflowY="auto" gap={4}>
+      <Grid flex={1} overflowY="auto" gap={4}>
         {/* First two "widget" cards */}
         <DalleWidget />
-        <DalleWidget />
-        <DalleWidget />
+        <MusicWidget />
+        
       </Grid>
     </Flex>
   );

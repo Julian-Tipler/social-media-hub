@@ -1,13 +1,5 @@
-import {
-  Box,
-  CardBody,
-  CardHeader,
-  Divider,
-  Flex,
-  Heading,
-  Image,
-  Text,
-} from "@chakra-ui/react";
+import { CardBody, CardHeader, Flex, Heading, Image } from "@chakra-ui/react";
+import { Divider } from "../../components/Divider";
 import { Card } from "../../components/Card";
 import { Textarea } from "../../components/Textarea";
 import { Input } from "../../components/Input";
@@ -28,12 +20,8 @@ export const CreateNewPost = () => {
         {/* Desktop */}
         <Flex flexDir={"column"} height={"100%"}>
           <Image flex={5} border={"2px solid red"} />
-          <Flex
-            backgroundColor={"gray.400"}
-            flex={4}
-            flexDir={"column"}
-            padding={5}
-          >
+          <Divider margin={"md"} />
+          <Flex flex={4} flexDir={"column"}>
             <Flex flex={3}>
               <Textarea
                 userIcon="julian"
@@ -43,21 +31,21 @@ export const CreateNewPost = () => {
                 placeholder="Write a caption..."
               />
             </Flex>
-            <Divider />
+            <Divider margin={"sm"} />
             <Input
               flex={1}
               placeholder="Add location"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
             />
-            <Divider />
+            <Divider margin={"sm"} />
             <Input
               flex={1}
               placeholder="Accesibility"
               value={accessibility}
               onChange={(e) => setAccessibility(e.target.value)}
             />
-            <Divider />
+            <Divider margin={"sm"} />
             <Input
               flex={1}
               placeholder="Advanced settings"

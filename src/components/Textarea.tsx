@@ -1,14 +1,14 @@
 import {
   Flex,
   Textarea as ChakraTextarea,
-  TextareaProps,
+  TextareaProps as ChakraTextareaProps,
   Icon,
   Text,
 } from "@chakra-ui/react";
 import { UserIcon } from "./UserIcon";
 import { FiSmile } from "react-icons/fi";
 
-interface TextInputBoxProps extends TextareaProps {
+interface TextareaProps extends ChakraTextareaProps {
   value: string;
   maxLength?: number;
   userIcon?: string;
@@ -29,17 +29,18 @@ export const Textarea = ({
   value,
   maxLength = 2200,
   ...props
-}: TextInputBoxProps) => {
+}: TextareaProps) => {
   return (
     <Flex flexDir={"column"} justifyContent={"center"} flex={1}>
       {userIcon && <UserIcon name={userIcon} />}
       <ChakraTextarea
-        {...minimalStyling}
-        {...props}
         resize={"none"}
         flex={7}
         value={value}
         maxLength={maxLength}
+        color={"white"}
+        {...minimalStyling}
+        {...props}
       />
       <Flex
         flex={1}
@@ -54,6 +55,7 @@ export const Textarea = ({
             color: "text.primary",
           }}
           as={FiSmile}
+          color={"white"}
         />
         <Text>{`${value.length}/${maxLength}`}</Text>
       </Flex>

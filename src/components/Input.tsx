@@ -1,6 +1,9 @@
-import { Input as ChakraInput, InputProps } from "@chakra-ui/react";
+import {
+  Input as ChakraInput,
+  InputProps as ChakraInputProps,
+} from "@chakra-ui/react";
 
-interface TextInputBoxProps extends InputProps {
+interface InputProps extends ChakraInputProps {
   userIcon?: string;
 }
 
@@ -14,6 +17,6 @@ const minimalStyling = {
   padding: 0,
 };
 
-export const Input = ({ ...props }: TextInputBoxProps) => {
-  return <ChakraInput {...minimalStyling} {...props} />;
+export const Input = ({ ...props }: InputProps) => {
+  return <ChakraInput color={"white"} {...minimalStyling} {...props} />;
 };
