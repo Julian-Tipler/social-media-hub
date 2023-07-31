@@ -63,18 +63,20 @@ export const SidebarLayout = ({ children }: { children?: ReactNode }) => {
       </Drawer>
       {/* mobilenav */}
       <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
+
+      {/* Body fills up the space that the Topbar div does not.*/}
       <Flex
         ml={{ base: 0, md: 60 }}
         className={"main"}
         flexDir={"column"}
         height={"100vh"}
       >
-        <Box minHeight={"60px"} p="0" m="0">
+        <Box minHeight={"60px"} p="0" m="0" className="topbar">
           <Topbar />
         </Box>
         <Box
           p="4"
-          className="page"
+          className="body"
           flex={1}
           overflow={"auto"}
           backgroundColor={"brand.background"}

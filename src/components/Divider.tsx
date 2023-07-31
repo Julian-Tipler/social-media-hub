@@ -16,12 +16,19 @@ const marginChart = {
 
 export const Divider = ({
   margin = "sm",
-  orientation,
+  vertical,
   ...props
 }: DividerProps) => {
-  const marginProps =
-    orientation === "vertical"
-      ? { marginLeft: marginChart[margin], marginRight: marginChart[margin] }
-      : { marginTop: marginChart[margin], marginBottom: marginChart[margin] };
+  const marginProps = vertical
+    ? {
+        marginLeft: marginChart[margin],
+        marginRight: marginChart[margin],
+        orientation: "vertical" as any,
+      }
+    : {
+        marginTop: marginChart[margin],
+        marginBottom: marginChart[margin],
+        orientation: "horizontal" as any,
+      };
   return <ChakraDivider color={"white"} {...props} {...marginProps} />;
 };

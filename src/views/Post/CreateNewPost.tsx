@@ -4,24 +4,27 @@ import { Card } from "../../components/Card";
 import { Textarea } from "../../components/Textarea";
 import { Input } from "../../components/Input";
 import { useState } from "react";
+import { ImageUploader } from "./ImageUploader";
 
 export const CreateNewPost = () => {
   const [caption, setCaption] = useState<string>("");
   const [location, setLocation] = useState<string>("");
   const [accessibility, setAccessibility] = useState<string>("");
   const [advancedSettings, setAdvancedSettings] = useState<string>("");
-  console.log(caption);
+
   return (
-    <Card>
+    <Card flex={1}>
       <CardHeader>
         <Heading size="sm">Create new post</Heading>
       </CardHeader>
-      <CardBody paddingTop={0}>
+      <CardBody paddingTop={0} display={"flex"} flex={1}>
         {/* Desktop */}
-        <Flex flexDir={"column"} height={"100%"}>
-          <Image flex={5} border={"2px solid red"} />
+        <Flex flexDir={"column"} flex={1}>
+          <Flex height={"400px"} justifyContent={"center"} className="image-uploader-container">
+            <ImageUploader />
+          </Flex>
           <Divider margin={"md"} />
-          <Flex flex={4} flexDir={"column"}>
+          <Flex flex={1} flexDir={"column"}>
             <Flex flex={3}>
               <Textarea
                 userIcon="julian"
