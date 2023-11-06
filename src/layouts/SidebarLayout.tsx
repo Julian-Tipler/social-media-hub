@@ -16,11 +16,11 @@ import {
 } from "@chakra-ui/react";
 import {
   FiHome,
-  FiTrendingUp,
   FiCompass,
   FiStar,
   FiSettings,
   FiMenu,
+  FiSmartphone,
 } from "react-icons/fi";
 import { IconType } from "react-icons";
 import { ReactText } from "react";
@@ -30,13 +30,14 @@ import Topbar from "../views/global/Topbar";
 interface LinkItemProps {
   name: string;
   icon: IconType;
+  href: string;
 }
 const LinkItems: Array<LinkItemProps> = [
-  { name: "Home", icon: FiHome },
-  { name: "Trending", icon: FiTrendingUp },
-  { name: "Explore", icon: FiCompass },
-  { name: "Favourites", icon: FiStar },
-  { name: "Settings", icon: FiSettings },
+  { name: "Home", icon: FiHome, href: "/" },
+  { name: "Post", icon: FiSmartphone, href: "/post" },
+  { name: "Explore", icon: FiCompass, href: "/" },
+  { name: "Favourites", icon: FiStar, href: "/" },
+  { name: "Settings", icon: FiSettings, href: "/" },
 ];
 
 export const SidebarLayout = ({ children }: { children?: ReactNode }) => {
@@ -62,17 +63,27 @@ export const SidebarLayout = ({ children }: { children?: ReactNode }) => {
       </Drawer>
       {/* mobilenav */}
       <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
-      <Box ml={{ base: 0, md: 60 }} className={"main"}>
-        <Topbar />
+
+      {/* Body fills up the space that the Topbar div does not.*/}
+      <Flex
+        ml={{ base: 0, md: 60 }}
+        className={"main"}
+        flexDir={"column"}
+        height={"100vh"}
+      >
+        <Box minHeight={"60px"} p="0" m="0" className="topbar">
+          <Topbar />
+        </Box>
         <Box
           p="4"
           className="body"
+          flex={1}
+          overflow={"auto"}
           backgroundColor={"brand.background"}
-          h={"100vh"}
         >
           <Outlet />
         </Box>
-      </Box>
+      </Flex>
     </Box>
   );
 };
@@ -81,7 +92,9 @@ interface SidebarProps extends BoxProps {
   onClose: () => void;
 }
 
+//Nav items for mobile and desktop view
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+  console.log("SidebarContent");
   return (
     <Box
       bg={useColorModeValue("brand.cardBackground", "gray.900")}
@@ -99,7 +112,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
+        <NavItem key={link.name} icon={link.icon} href={link.href}>
           {link.name}
         </NavItem>
       ))}
@@ -109,13 +122,14 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 
 interface NavItemProps extends FlexProps {
   icon: IconType;
+  href: string;
   children: ReactText;
 }
-const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
+const NavItem = ({ icon, children, href, ...rest }: NavItemProps) => {
+  console.log();
   return (
     <Link
-      href="
-      "
+      href={href}
       style={{ textDecoration: "none" }}
       _focus={{ boxShadow: "none" }}
     >
