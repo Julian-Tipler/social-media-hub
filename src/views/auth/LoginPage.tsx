@@ -29,7 +29,7 @@ export const LoginPage = () => {
   return (
     <Grid p={3}>
       <VStack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
-        <Card rounded={"lg"} boxShadow={"lg"} p={8} minWidth={"20rem"}>
+        <Card rounded={"lg"} boxShadow={"lg"} p={8} minWidth={"22rem"}>
           <Text fontSize={"lg"} fontWeight={600}>
             Sign in to your account
           </Text>
@@ -55,8 +55,14 @@ export const LoginPage = () => {
                 {isLoggingIn ? "Logging in..." : "Login"}
               </Button>
               <Link to={`/signup?from=${encodeURIComponent(from)}`}>
-                <Button colorScheme="teal" size="md" fontSize="md" mt={8}>
-                  Sign Up
+                <Button
+                  colorScheme="transparent"
+                  size="md"
+                  fontSize="md"
+                  mt={8}
+                  _hover={{ color: "brand.primary" }}
+                >
+                  Create Account
                 </Button>
               </Link>
             </Flex>

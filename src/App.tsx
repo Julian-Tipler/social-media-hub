@@ -10,6 +10,7 @@ import { Post } from "./views/post/Post";
 import { LoginPage } from "./views/auth/LoginPage";
 import { SignupPage } from "./views/auth/SignupPage";
 import supabase from "./supabase/supabaseClient";
+import Error from "./components/Error";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -20,8 +21,8 @@ const App = () => {
         {
           path: "login",
           loader: async () => {
-            console.log("root login");
-            const loggedIn = await supabase.auth.getSession();
+            const session = await supabase.auth.getSession();
+            const loggedIn = session?.data?.session;
             if (loggedIn) {
               return redirect("/");
             }
@@ -34,7 +35,8 @@ const App = () => {
         {
           path: "signup",
           loader: async () => {
-            const loggedIn = await supabase.auth.getSession();
+            const session = await supabase.auth.getSession();
+            const loggedIn = session?.data?.session;
             if (loggedIn) {
               return redirect("/");
             }
@@ -43,6 +45,10 @@ const App = () => {
           action: signupAction,
           element: <SignupPage />,
           // action possibly to be used for redirecting to home if logged in
+        },
+        {
+          path: "please-verify",
+          element: <Error message="Please verify your email" />,
         },
         {
           path: "splash",
@@ -65,7 +71,7 @@ const App = () => {
         },
         {
           path: "*",
-          element: <div>404</div>,
+          element: <Error message="404" />,
         },
       ],
     },
@@ -73,8 +79,7 @@ const App = () => {
       path: "/logout",
       async action() {
         await supabase.auth.signOut();
-        console.log("logging out");
-        return redirect("/splash");
+        return redirect("/login");
       },
     },
   ]);
@@ -87,9 +92,9 @@ async function protectedLoader({ request }: LoaderFunctionArgs) {
   // If the user is not logged in and tries to access `/protected`, we redirect
   // them to `/login` with a `from` parameter that allows login to redirect back
   // to this page upon successful authentication
+  console.log(request);
 
   const auth = await supabase.auth.getSession();
-  console.log("Protected loader sesssion:", auth);
   // something like this: const session = supabase.auth.session();
   if (!auth.data.session) {
     const params = new URLSearchParams();
@@ -144,13 +149,12 @@ async function signupAction({ request }: LoaderFunctionArgs) {
   }
 
   try {
-    await supabase.auth.signUp({ email: email, password });
+    const result = await supabase.auth.signUp({ email, password });
   } catch (error) {
     return {
       error: "Error creating account",
     };
   }
-
   // Decide where to redirect after successful signup
-  return redirect("/"); // You might want to redirect to '/login' or elsewhere
+  return redirect("/please-verify"); // You might want to redirect to '/login' or elsewhere
 }
