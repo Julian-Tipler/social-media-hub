@@ -8,6 +8,7 @@ import { Home } from "./views/home/Home";
 import { SidebarLayout } from "./layouts/SidebarLayout";
 import { Post } from "./views/post/Post";
 import { LoginPage } from "./views/auth/LoginPage";
+import { SignupPage } from "./views/auth/SignupPage";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -42,7 +43,7 @@ const App = () => {
             return null;
           },
           action: signupAction,
-          element: <LoginPage />,
+          element: <SignupPage />,
           // action possibly to be used for redirecting to home if logged in
         },
         {

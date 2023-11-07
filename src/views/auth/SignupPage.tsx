@@ -1,25 +1,23 @@
-import { useState } from "react";
 import {
-  ChakraProvider,
-  Box,
   VStack,
   Grid,
-  theme,
   Text,
   FormControl,
   FormLabel,
   Input,
   Button,
+  Flex,
 } from "@chakra-ui/react";
 import { Card } from "../../components/Card";
 import {
   Form,
+  Link,
   useActionData,
   useLocation,
   useNavigation,
 } from "react-router-dom";
 
-export const LoginPage = () => {
+export const SignupPage = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const from = params.get("from") || "/";
@@ -31,7 +29,7 @@ export const LoginPage = () => {
   return (
     <Grid p={3}>
       <VStack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
-        <Card rounded={"lg"} boxShadow={"lg"} p={8}>
+        <Card rounded={"lg"} boxShadow={"lg"} p={8} minWidth={"20rem"}>
           <Text fontSize={"lg"} fontWeight={600}>
             Create your account
           </Text>
@@ -45,16 +43,24 @@ export const LoginPage = () => {
               <FormLabel color="text.primary">Password</FormLabel>
               <Input color="text.primary" type="password" name="password" />
             </FormControl>
-            <Button
-              disabled={isLoggingIn}
-              type="submit"
-              colorScheme="blue"
-              size="lg"
-              fontSize="md"
-              mt={8}
-            >
-              {isLoggingIn ? "Creating Account..." : "Create Account"}
-            </Button>
+            <Flex justifyContent={"space-between"}>
+              <Button
+                disabled={isLoggingIn}
+                type="submit"
+                colorScheme="blue"
+                size="md"
+                fontSize="md"
+                mt={8}
+              >
+                {isLoggingIn ? "Creating Account..." : "Create Account"}
+              </Button>
+              <Link to={`/login?from=${encodeURIComponent(from)}`}>
+                <Button colorScheme="teal" size="md" fontSize="md" mt={8}>
+                  Login
+                </Button>
+              </Link>
+            </Flex>
+
             {actionData && actionData.error ? (
               <p style={{ color: "red" }}>{actionData.error}</p>
             ) : null}
