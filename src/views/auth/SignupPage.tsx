@@ -23,7 +23,7 @@ export const SignupPage = () => {
   const from = params.get("from") || "/";
 
   const navigation = useNavigation();
-  const isLoggingIn = navigation.formData?.get("username") != null;
+  const isLoggingIn = navigation.formData?.get("email") != null;
   const actionData = useActionData() as { error: string } | undefined;
 
   return (
@@ -35,9 +35,9 @@ export const SignupPage = () => {
           </Text>
           <Form method="post" replace>
             <input type="hidden" name="redirectTo" value={from} />
-            <FormControl id="username" isRequired mt={4}>
+            <FormControl id="email" isRequired mt={4}>
               <FormLabel color="text.primary">Email address</FormLabel>
-              <Input color="text.primary" type="username" name="username" />
+              <Input color="text.primary" type="email" name="email" />
             </FormControl>
             <FormControl id="password" isRequired mt={4}>
               <FormLabel color="text.primary">Password</FormLabel>
