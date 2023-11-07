@@ -1,7 +1,7 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import Welcome from "./Welcome";
 import { Meta } from "./Meta";
-import { CreateNewPost } from "../Post/CreateNewPost";
+import { CreateNewPost } from "../post/CreateNewPost";
 
 export const Home = () => {
   return (
