@@ -33,7 +33,7 @@ export const LoginPage = () => {
       <VStack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Card rounded={"lg"} boxShadow={"lg"} p={8}>
           <Text fontSize={"lg"} fontWeight={600}>
-            Sign in to your account
+            Create your account
           </Text>
           <Form method="post" replace>
             <input type="hidden" name="redirectTo" value={from} />
@@ -53,7 +53,7 @@ export const LoginPage = () => {
               fontSize="md"
               mt={8}
             >
-              {isLoggingIn ? "Logging in..." : "Login"}
+              {isLoggingIn ? "Creating Account..." : "Create Account"}
             </Button>
             {actionData && actionData.error ? (
               <p style={{ color: "red" }}>{actionData.error}</p>

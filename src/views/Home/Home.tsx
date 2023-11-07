@@ -1,6 +1,5 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import Welcome from "./Welcome";
-import { Meta } from "./Meta";
 import { CreateNewPost } from "../post/CreateNewPost";
 
 export const Home = () => {
@@ -16,9 +15,6 @@ export const Home = () => {
       </GridItem>
       <GridItem rowSpan={1} colSpan={{ base: 2, md: 1 }}>
         <CreateNewPost />
-      </GridItem>
-      <GridItem rowSpan={1} colSpan={{ base: 2, md: 1 }}>
-        <Meta />
       </GridItem>
     </Grid>
   );
