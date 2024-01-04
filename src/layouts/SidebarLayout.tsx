@@ -24,7 +24,7 @@ import {
 } from "react-icons/fi";
 import { IconType } from "react-icons";
 import { ReactText } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLoaderData } from "react-router-dom";
 import Topbar from "../views/global/Topbar";
 
 interface LinkItemProps {
@@ -41,6 +41,7 @@ const LinkItems: Array<LinkItemProps> = [
 ];
 
 export const SidebarLayout = ({ children }: { children?: ReactNode }) => {
+  const data = useLoaderData();
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
@@ -94,7 +95,6 @@ interface SidebarProps extends BoxProps {
 
 //Nav items for mobile and desktop view
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
-  console.log("SidebarContent");
   return (
     <Box
       bg={useColorModeValue("brand.cardBackground", "gray.900")}
@@ -126,7 +126,6 @@ interface NavItemProps extends FlexProps {
   children: ReactText;
 }
 const NavItem = ({ icon, children, href, ...rest }: NavItemProps) => {
-  console.log();
   return (
     <Link
       href={href}
